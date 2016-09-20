@@ -22,7 +22,7 @@ public class remote {
         capabilities.setPlatform(Platform.WINDOWS);
 
         RemoteWebDriver driver = new RemoteWebDriver(new URL(
-                "http://192.168.0.102:4444/wd/hub"), capabilities);
+                "http://localhost:4444/wd/hub"), capabilities);
         driver.navigate().to("https://www.teknosa.com/");
         Assert.assertEquals("Title check failed!", "Teknosa Alışveriş Sitesi - Herkes İçin Teknoloji", driver.getTitle());
 

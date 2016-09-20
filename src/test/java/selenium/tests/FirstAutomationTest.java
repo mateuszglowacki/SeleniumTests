@@ -20,7 +20,7 @@ public class FirstAutomationTest {
     @Test
     //Start to write our test method. It should ends with "Test"
     public void firefoxTest(){
-        File pathBinary = new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+        File pathBinary = new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
         FirefoxBinary firefoxBinary = new FirefoxBinary(pathBinary);
         FirefoxProfile firefoxProfile = new FirefoxProfile();
         WebDriver driver = new FirefoxDriver(firefoxBinary, firefoxProfile);

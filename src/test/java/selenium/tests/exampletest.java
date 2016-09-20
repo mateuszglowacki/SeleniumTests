@@ -33,7 +33,7 @@ public class exampletest {
                     //the form for us from the element
                     element.submit();
             // Google's search is rendered dynamically
-            //with JavaScript.
+            //with JavaScriptTest.
             // Wait for the page to load, timeout after
             //10 seconds
             (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
