@@ -24,7 +24,7 @@ public class remotechrome {
         capabilities.setCapability("applicationName", "PCWIN10_64bit");
 
         RemoteWebDriver driver = new RemoteWebDriver(new URL(
-                "http://192.168.43.4:4444/wd/hub"), capabilities);
+                "http://localhost:4444/wd/hub"), capabilities);
         driver.manage().window().maximize();
         driver.navigate().to("https://www.google.com/");
         Assert.assertEquals("Title check failed!", "Google", driver.getTitle());
