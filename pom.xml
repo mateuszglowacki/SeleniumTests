@@ -78,7 +78,7 @@
         </dependency>
 
     </dependencies>
-
+<!--
     <build>
         <plugins>
             <plugin>
@@ -114,5 +114,5 @@
     </profile>
     </profiles>
 
-
+-->
 </project>
