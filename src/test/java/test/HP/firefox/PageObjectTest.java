@@ -44,7 +44,7 @@ public class PageObjectTest {
        // driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         google.searchFor("pp");
        // boolean result = google.searchResultPresent("Politechnika Poznańska");
-        google.searchResultPresent("Politechnika Poznańska");
+        google.searchResultPresent("Politechnika");
         //Assert.assertTrue (result == true);
     }
 
