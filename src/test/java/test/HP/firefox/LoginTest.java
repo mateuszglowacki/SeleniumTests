@@ -63,4 +63,17 @@ public class LoginTest {
         assertThat(successMessage.isDisplayed(), is(Boolean.TRUE));
     }
 
+    @Test
+    public void withInvalidCredentials() throws IOException {
+        driver.navigate().to("http://the-internet.herokuapp.com/login");
+        driver.findElement(By.id("username")).sendKeys("test124");
+        driver.findElement(By.id("password")).sendKeys("1234");
+        driver.findElement(By.cssSelector("button")).click();
+        WebElement errorMessage = driver.findElement(By.cssSelector(".flash.error"));
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshot, new File(System.getProperty("user.dir") + "/HP_Firefox_FailedLoginTest_screenshot.png"));
+        assertThat(errorMessage.isDisplayed(), is(Boolean.TRUE));
+    }
+
+
 }
