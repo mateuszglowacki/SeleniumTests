@@ -76,7 +76,7 @@ public class DownloadTest {
         assertThat(listOfFiles.length, is(not(0)));
         for (File file : listOfFiles) {
             // Make sure the downloaded file(s) is(are) not empty
-            assertThat(file.length(), not((long)0));
+            assertThat(listOfFiles.length, is(not(0)));
         }
         // Delete files and folder
         for (File file: folder.listFiles()) {
