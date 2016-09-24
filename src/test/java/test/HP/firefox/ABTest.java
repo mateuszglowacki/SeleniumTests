@@ -1,9 +1,6 @@
 package test.HP.firefox;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.MethodRule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
@@ -21,10 +18,15 @@ public class ABTest {
 
     RemoteWebDriver driver;
 
+    @BeforeClass
+    public static void displayLine() {
+        System.out.println("===========================================================================================");
+    }
+
     @Rule
     public MethodRule watchman = new TestWatchman() {
         public void starting(FrameworkMethod method) {
-            System.out.println("Starting test: " + method.getName());
+            System.out.println("Starting: " + getClass());
         }
     };
 
@@ -38,6 +40,7 @@ public class ABTest {
         capabilities.setCapability("applicationName", "PCWIN10_64bit");
         driver = new RemoteWebDriver(new URL(
                 "http://localhost:4444/wd/hub"), capabilities);
+        System.out.println("Browser name: " + capabilities.getBrowserName() + ", Version: " + capabilities.getVersion() + ", Platform: " + capabilities.getPlatform());
         driver.manage().window().maximize();
     }
 
@@ -49,7 +52,7 @@ public class ABTest {
             driver.close();
             driver.quit();
         }
-        System.out.println("########## ");
+        System.out.println("...");
     }
 
     @Test
