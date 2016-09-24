@@ -1,9 +1,6 @@
 package test.HP.chrome;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.MethodRule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
@@ -25,10 +22,15 @@ public class HoverTest {
 
     RemoteWebDriver driver;
 
+    @BeforeClass
+    public static void displayLine() {
+        System.out.println("===========================================================================================");
+    }
+
     @Rule
     public MethodRule watchman = new TestWatchman() {
         public void starting(FrameworkMethod method) {
-            System.out.println("Starting test: " + method.getName());
+            System.out.println("Starting: " + getClass());
         }
     };
 
@@ -43,6 +45,7 @@ public class HoverTest {
         driver = new RemoteWebDriver(new URL(
                 "http://localhost:4444/wd/hub"), capabilities);
         driver.manage().window().maximize();
+        System.out.println("Browser name: " + capabilities.getBrowserName() + ", Version: " + capabilities.getVersion() + ", Platform: " + capabilities.getPlatform());
     }
 
     @After
@@ -53,7 +56,7 @@ public class HoverTest {
             driver.close();
             driver.quit();
         }
-        System.out.println("########## ");
+        System.out.println("...");
     }
 
     @Test

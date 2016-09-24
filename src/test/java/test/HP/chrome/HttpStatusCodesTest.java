@@ -5,10 +5,7 @@ import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.client.ClientUtil;
 import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.CaptureType;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.MethodRule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
@@ -28,10 +25,15 @@ public class HttpStatusCodesTest {
     RemoteWebDriver driver;
     BrowserMobProxy proxy;
 
+    @BeforeClass
+    public static void displayLine() {
+        System.out.println("===========================================================================================");
+    }
+
     @Rule
     public MethodRule watchman = new TestWatchman() {
         public void starting(FrameworkMethod method) {
-            System.out.println("Starting test: " + method.getName());
+            System.out.println("Starting: " + getClass());
         }
     };
 
@@ -53,6 +55,7 @@ public class HttpStatusCodesTest {
         driver = new RemoteWebDriver(new URL(
                 "http://localhost:4444/wd/hub"), capabilities);
         driver.manage().window().maximize();
+        System.out.println("Browser name: " + capabilities.getBrowserName() + ", Version: " + capabilities.getVersion() + ", Platform: " + capabilities.getPlatform());
         // enable detailed HAR capture
         proxy.enableHarCaptureTypes(
                 CaptureType.REQUEST_CONTENT,
@@ -67,7 +70,7 @@ public class HttpStatusCodesTest {
             driver.close();
             driver.quit();
         }
-        System.out.println("########## ");
+        System.out.println("...");
     }
 
     @Test
