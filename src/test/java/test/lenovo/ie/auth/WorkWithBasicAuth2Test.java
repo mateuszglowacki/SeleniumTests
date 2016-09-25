@@ -37,7 +37,7 @@ public class WorkWithBasicAuth2Test {
         capabilities.setBrowserName("internet explorer");
         capabilities.setVersion("11");
         capabilities.setPlatform(Platform.WINDOWS);
-        capabilities.setCapability("applicationName", "PCWIN10_64bit");
+        capabilities.setCapability("applicationName", "PCWIN8_1_32bit");
         driver = new RemoteWebDriver(new URL(
                 "http://localhost:4444/wd/hub"), capabilities);
         driver.manage().window().maximize();
