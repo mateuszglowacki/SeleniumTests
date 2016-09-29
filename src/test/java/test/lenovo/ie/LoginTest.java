@@ -67,6 +67,7 @@ public class LoginTest {
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.id("password")).submit();
         //driver.findElement(By.cssSelector("button")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement successMessage = driver.findElement(By.cssSelector(".flash.success"));
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File(System.getProperty("user.dir") + "/Lenovo_IE_LoginTest_screenshot.png"));
@@ -79,6 +80,7 @@ public class LoginTest {
         driver.findElement(By.id("username")).sendKeys("test124");
         driver.findElement(By.id("password")).sendKeys("1234");
         driver.findElement(By.id("password")).submit();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         //The test fails on standard click
         //driver.findElement(By.className("radius")).click();
         //WebElement myDynamicElement = (new WebDriverWait(driver, 10))

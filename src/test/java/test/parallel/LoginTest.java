@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -90,6 +91,7 @@ public class LoginTest {
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("button")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement successMessage = driver.findElement(By.cssSelector(".flash.success"));
         assertThat(successMessage.isDisplayed(), is(Boolean.TRUE));
     }
@@ -100,6 +102,7 @@ public class LoginTest {
         driver.findElement(By.id("username")).sendKeys("test124");
         driver.findElement(By.id("password")).sendKeys("1234");
         driver.findElement(By.cssSelector("button")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement errorMessage = driver.findElement(By.cssSelector(".flash.error"));
         assertThat(errorMessage.isDisplayed(), is(Boolean.TRUE));
     }
