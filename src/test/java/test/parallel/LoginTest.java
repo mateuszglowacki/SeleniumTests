@@ -34,8 +34,9 @@ public class LoginTest {
     @Parameterized.Parameters
     public static LinkedList<String[]> getEnvironments() throws Exception {
         LinkedList<String[]> env = new LinkedList<String[]>();
-        env.add(new String[]{"WINDOWS", "chrome", "53"});
+        env.add(new String[]{"WINDOWS", "firefox", "44"});
         env.add(new String[]{"WINDOWS", "internet explorer", "11"});
+        env.add(new String[]{"WINDOWS", "chrome", "53"});
         //add more browsers here
         return env;
     }
